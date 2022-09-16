@@ -35,4 +35,15 @@ public class HelloController {
 		
 	}
 
+	@GetMapping("/health")
+	public String health() {
+		
+		String txt = "Health OK";
+	
+		System.out.println(response);
+		return txt;
+		
+	}
+
+
 }

@@ -51,3 +51,14 @@ jobs:
           slot-name: "staging"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_STAGING }}
           package: "*.jar"
+      - name: Health check
+        uses: jtalk/url-health-check-action@v2
+        with:
+          url: https://app-demo-darwin-dev-staging.azurewebsites.net/health
+          max-attempts: 3
+          retry-delay: 10s
+      # - name: Azure Swap Slots
+      #   uses: azure/CLI@v1
+      #   with:
+      #     inlineScript: |
+      #     az webapp deployment slot swap  --resource-group "rg-demo-darwin-dev" --name "app-demo-darwin-dev" --slot staging --target-slot production
