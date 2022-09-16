@@ -6,7 +6,7 @@ name: Webapp Deploy
 on:
   push:
     branches:
-      - develop
+      - master
   workflow_dispatch:
 
 jobs:
