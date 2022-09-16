@@ -1,0 +1,8 @@
+target
+*.class
+pom.xml.versionsBackup
+.classpath
+.project
+dependency-reduced-pom.xml
+.settings/*
+.vscode/*
