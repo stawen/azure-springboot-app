@@ -40,7 +40,7 @@ public class HelloController {
 		
 		String txt = "Health OK";
 	
-		System.out.println(response);
+		System.out.println(txt);
 		return txt;
 		
 	}
