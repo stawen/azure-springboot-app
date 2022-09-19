@@ -20,13 +20,13 @@ public class HelloController {
 	@GetMapping("/")
 	public String index() {
 		
-		String txt = "Demo Cloud APP - V2.0";
+		String txt = "Demo Cloud APP - V1.0";
 		String now = dateFormatter.format(OffsetDateTime.now(UTC));
 		String response = now + " - " + txt;
 
 		System.out.println(response);
 		return "<html>"
-				+"<body style='background-color:#008000;'>" // 38B2E4 blue
+				+"<body style='background-color:#38B2E4;'>" // 38B2E4 blue // #008000;Green
 				+"		<font size='16' color='#ffffff'>"
 				+ txt
 				+"		</font>"
