@@ -24,7 +24,7 @@ public class HelloController {
 		String now = dateFormatter.format(OffsetDateTime.now(UTC));
 		
 		Map<String, String> env = System.getenv();
-		String check = env.get("CHECK)"
+		String check = env.get("CHECK");
 		
 		String response = now + " - " + txt + " " + check;
 
