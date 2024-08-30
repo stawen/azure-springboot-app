@@ -48,7 +48,7 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: "app-maif-secret-inno2-dev"
-          slot-name: "stagging"
+          slot-name: "staging"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: "*.jar"
         
