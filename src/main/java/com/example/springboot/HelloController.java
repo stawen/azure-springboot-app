@@ -20,7 +20,7 @@ public class HelloController {
 	@GetMapping("/")
 	public String index() {
 		
-		String txt = "Demo Cloud APP - V2.0";
+		String txt = "Demo Cloud APP - V2.1";
 		String now = dateFormatter.format(OffsetDateTime.now(UTC));
 		String response = now + " - " + txt;
 
