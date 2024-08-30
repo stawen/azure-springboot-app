@@ -9,6 +9,11 @@ on:
       - master
   workflow_dispatch:
 
+env:
+  WEBAPP_NAME: app-maif-secret-inno2-dev
+  RG: rg-sdr-cli
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -47,8 +52,31 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: "app-maif-secret-inno2-dev"
+          app-name: $WEBAPP_NAME
           slot-name: "staging"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: "*.jar"
-        
+      
+      - name: Start Preview mode (Injecte ENV VAR from production Slot)
+        uses: azure/cli@v2
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az webapp deployment slot swap  -g $RG -n $WEBAPP_NAME --slot staging --target-slot production --action preview
+      
+      - name: Health check Slot Staging
+        id: health
+        uses: jtalk/url-health-check-action@v2
+        with:
+          url: https://$WEBAPP_NAME-staging.azurewebsites.net/health
+          max-attempts: 3
+          retry-delay: 10s
+      
+      - name: Swap Stagint to Production
+        if: steps.build.outputs.exit_code == 0
+        uses: azure/cli@v2
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az webapp deployment slot swap  -g $RG -n $WEBAPP_NAME --slot staging --target-slot production
+          
