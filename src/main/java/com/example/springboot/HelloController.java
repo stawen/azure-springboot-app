@@ -20,15 +20,20 @@ public class HelloController {
 	@GetMapping("/")
 	public String index() {
 		
-		String txt = "Demo Cloud APP - V2.1";
+		String txt = "Demo Cloud APP - V2.2";
 		String now = dateFormatter.format(OffsetDateTime.now(UTC));
-		String response = now + " - " + txt;
+		
+		Map<String, String> env = System.getenv();
+		check = env.get("CHECK)"
+		
+		String response = now + " - " + txt + " " + check;
 
 		System.out.println(response);
 		return "<html>"
 				+"<body style='background-color:#008000;'>" // 38B2E4 blue // #008000;Green
 				+"		<font size='16' color='#ffffff'>"
 				+ txt
+				+ check
 				+"		</font>"
 				+"	</body>"
 				+"</html>";
