@@ -19,7 +19,7 @@ jobs:
       - name: Set up Java version
         uses: actions/setup-java@v1
         with:
-          java-version: "11"
+          java-version: "17"
 
       - name: Build with Maven
         run: mvn clean install
@@ -47,7 +47,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: "app-demo-darwin-dev"
+          app-name: "app-maif-secret-inno2-dev"
           slot-name: "production"
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: "*.jar"
