@@ -23,8 +23,7 @@ public class HelloController {
 		String txt = "Demo Cloud APP - V2.2";
 		String now = dateFormatter.format(OffsetDateTime.now(UTC));
 		
-		Map<String, String> env = System.getenv();
-		String check = env.get("CHECK");
+		String check = System.getenv("CHECK");
 		
 		String response = now + " - " + txt + " " + check;
 
