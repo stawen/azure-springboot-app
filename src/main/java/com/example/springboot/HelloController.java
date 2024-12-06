@@ -32,9 +32,10 @@ public class HelloController {
 				+"<body style='background-color:#008000;'>" // 38B2E4 blue // #008000;Green
 				+"		<font size='16' color='#ffffff'>"
 				+ txt
-				+"<br/>" 
-				+ check
 				+"		</font>"
+				+"<p>"
+				+ check
+				+"</p>"
 				+"	</body>"
 				+"</html>";
 		
