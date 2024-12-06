@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  WEBAPP_NAME: maif-squadid-foo-dev
+  WEBAPP_NAME: app-maif-squadid-foo-dev
   RG: rg-squad-id
 
 
