@@ -29,7 +29,7 @@ public class HelloController {
 
 		System.out.println(response);
 		return "<html>"
-				+"<body style='background-color:#38B2E4;'>" // 38B2E4 blue // #008000;Green
+				+"<body style='background-color:#008000;'>" // 38B2E4 blue // #008000;Green
 				+"		<font size='16' color='#ffffff'>"
 				+ txt
 				+"		</font>"

@@ -41,7 +41,7 @@ jobs:
     needs: build
     environment:
       name: "production"
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      #url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
       - name: Download artifact from build job
@@ -60,7 +60,6 @@ jobs:
         with:
           app-name: ${{ env.WEBAPP_NAME }}
           slot-name: "staging"
-          #publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: "*.jar"
       
       - name: Start Preview mode (Injecte ENV VAR from production Slot)
@@ -78,7 +77,7 @@ jobs:
           max-attempts: 3
           retry-delay: 10s
       
-      - name: Swap Stagint to Production
+      - name: Swap Staging to Production
         uses: azure/cli@v2
         with:
           azcliversion: latest
